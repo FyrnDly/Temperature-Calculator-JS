@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Temperature Calculate</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="library/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="navTab" role="tablist">
+            <li class="navbar-brand nav-item me-auto my-auto">Temp Calculate</li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="celsius-tab" data-bs-toggle="tab" data-bs-target="#celsius"
+                    type="button" role="tab" aria-controls="celsius" aria-selected="true">Celsius</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reamur-tab" data-bs-toggle="tab" data-bs-target="#reamur" type="button"
+                    role="tab" aria-controls="reamur" aria-selected="false">Reamur</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="fahrenheit-tab" data-bs-toggle="tab" data-bs-target="#fahrenheit"
+                    type="button" role="tab" aria-controls="fahrenheit" aria-selected="false">Fahrenheit</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="kelvin-tab" data-bs-toggle="tab" data-bs-target="#kelvin" type="button"
+                    role="tab" aria-controls="kelvin" aria-selected="false">Kelvin</button>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Content -->
+    <main class="container mt-5">
+        <div class="tab-content">
+            <!-- Section Celsius -->
+            <div class="tab-pane active" id="celsius" role="tabpanel" aria-labelledby="celsius-tab">
+                <form class="row" onsubmit="getCelsius()" action="#">
+                    <div class="form-floating mb-2 col-md-8 col-lg-10">
+                        <input type="number" class="form-control" id="celsiusInput" placeholder="Temperature" value="">
+                        <label class="ms-2" for="celsiusInput">Celsius Temperature</label>
+                    </div>
+                    <div class="col-md-4 col-lg-2 mt-1 mb-4">
+                        <button class="btn btn-primary btn-lg w-100" type="submit">Conversion</button>
+                    </div>
+                </form>
+                <div class="row justify-content-between">
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="reamurCelsius" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="reamurCelsius">Reamur</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="fahrenheitCelsius" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="fahrenheitCelsius">Fahrenheit</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="kelvinCelsius" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="kelvinCelsius">Kelvin</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Reamur -->
+            <div class="tab-pane" id="reamur" role="tabpanel" aria-labelledby="reamur-tab">
+                <form class="row" onsubmit="getReamur()" action="#">
+                    <div class="form-floating mb-2 col-md-8 col-lg-10">
+                        <input type="number" class="form-control" id="reamurInput" placeholder="Temperature" value="">
+                        <label class="ms-2" for="reamurInput">Reamur Temperature</label>
+                    </div>
+                    <div class="col-md-4 col-lg-2 mt-1 mb-4">
+                        <button class="btn btn-primary btn-lg w-100" type="submit">Conversion</button>
+                    </div>
+                </form>
+                <div class="row justify-content-between">
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="celsiusReamur" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="celsiusReamur">Celsius</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="fahrenheitReamur" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="fahrenheitReamur">Fahrenheit</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="kelvinReamur" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="kelvinReamur">Kelvin</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Fahrenheit -->
+            <div class="tab-pane" id="fahrenheit" role="tabpanel" aria-labelledby="fahrenheit-tab">
+                <form class="row" onsubmit="getFahrenheit()" action="#">
+                    <div class="form-floating mb-2 col-md-8 col-lg-10">
+                        <input type="number" class="form-control" id="fahrenheitInput" placeholder="Temperature"
+                            value="">
+                        <label class="ms-2" for="fahrenheitInput">Fahrenheit Temperature</label>
+                    </div>
+                    <div class="col-md-4 col-lg-2 mt-1 mb-4">
+                        <button class="btn btn-primary btn-lg w-100" type="submit">Conversion</button>
+                    </div>
+                </form>
+                <div class="row justify-content-between">
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="celsiusFahrenheit" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="celsiusFahrenheit">Celsius</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="reamurFahrenheit" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="reamurFahrenheit">Reamur</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="kelvinFahrenheit" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="kelvinFahrenheit">Kelvin</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Kelvin -->
+            <div class="tab-pane" id="kelvin" role="tabpanel" aria-labelledby="kelvin-tab">
+                <form class="row" onsubmit="getKelvin()" action="#">
+                    <div class="form-floating mb-2 col-md-8 col-lg-10">
+                        <input type="number" class="form-control" id="kelvinInput" placeholder="Temperature" value="">
+                        <label class="ms-2" for="kelvinInput">Kelvin Temperature</label>
+                    </div>
+                    <div class="col-md-4 col-lg-2 mt-1 mb-4">
+                        <button class="btn btn-primary btn-lg w-100" type="submit">Conversion</button>
+                    </div>
+                </form>
+                <div class="row justify-content-between">
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="celsiusKelvin" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="celsiusKelvin">Celsius</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="reamurKelvin" value="" placeholder="Temperature"
+                            disabled>
+                        <label class="ms-2" for="reamurKelvin">Reamur</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="input" class="form-control" id="fahrenheitKelvin" value=""
+                            placeholder="Temperature" disabled>
+                        <label class="ms-2" for="fahrenheitKelvin">Fahrenheit</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="library/bootstrap/popper.min.js"></script>
+    <script src="library/bootstrap/bootstrap.min.js"></script>
+    <!-- Script Conversions -->
+    <script src="script/conversions.js"></script>
+    <script>
+        // Function Celsius
+        function getCelsius() {
+            const celsius = document.getElementById("celsiusInput").value;
+            const celsiusToReamur = ctr(celsius) + " °R";
+            const celsiusToFahrenheit = ctf(celsius) + " °F";
+            const celsiusToKelvin = ctk(celsius) + " K";
+
+            // Get Value Conversion
+            document.getElementById("reamurCelsius").value = celsiusToReamur;
+            document.getElementById("fahrenheitCelsius").value = celsiusToFahrenheit;
+            document.getElementById("kelvinCelsius").value = celsiusToKelvin;
+        }
+        // Function Reamur
+        function getReamur() {
+            const reamur = document.getElementById("reamurInput").value;
+            const reamurToCelsius = rtc(reamur) + " °C";
+            const reamurToFahrenheit = rtf(reamur) + " °F";
+            const reamurToKelvin = rtk(reamur) + " K";
+
+            // Get Value Conversion
+            document.getElementById("celsiusReamur").value = reamurToCelsius;
+            document.getElementById("fahrenheitReamur").value = reamurToFahrenheit;
+            document.getElementById("kelvinReamur").value = reamurToKelvin;
+        }
+        // Function Fahrenheit
+        function getFahrenheit() {
+            const fahrenheit = document.getElementById("fahrenheitInput").value;
+            const fahrenheitToCelsius = ftc(fahrenheit) + " °C";
+            const fahrenheitToReamur = ftr(fahrenheit) + " °R";
+            const fahrenheitToKelvin = ftk(fahrenheit) + " K";
+
+            // Get Value Conversion
+            document.getElementById("celsiusFahrenheit").value = fahrenheitToCelsius;
+            document.getElementById("reamurFahrenheit").value = fahrenheitToReamur;
+            document.getElementById("kelvinFahrenheit").value = fahrenheitToKelvin;
+        }
+        // Function Kelvin
+        function getKelvin() {
+            const kelvin = document.getElementById("kelvinInput").value;
+            const kelvinToCelsius = ktc(kelvin) + " °C";
+            const kelvinToReamur = ktr(kelvin) + " °R";
+            const kelvinToKelvin = ktf(kelvin) + " °F";
+
+            // Get Value Conversion
+            document.getElementById("celsiusKelvin").value = kelvinToCelsius;
+            document.getElementById("reamurKelvin").value = kelvinToReamur;
+            document.getElementById("fahrenheitKelvin").value = kelvinToKelvin;
+        }
+    </script>
+</body>
+
+</html>
